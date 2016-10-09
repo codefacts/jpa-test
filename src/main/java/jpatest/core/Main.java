@@ -1,6 +1,7 @@
 package jpatest.core;
 
 import jpatest.models.*;
+import org.eclipse.persistence.internal.jpa.metamodel.ListAttributeImpl;
 import org.eclipse.persistence.mappings.ManyToManyMapping;
 import org.eclipse.persistence.mappings.OneToManyMapping;
 import org.osgi.service.jpa.EntityManagerFactoryBuilder;
@@ -9,6 +10,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.metamodel.Attribute;
+import javax.persistence.metamodel.ListAttribute;
+import javax.persistence.metamodel.PluralAttribute;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -39,7 +42,13 @@ public class Main {
 
             em.getMetamodel().managedType(Br.class).getPluralAttributes().forEach(attribute -> {
 
-                if (attribute.getPersistentAttributeType() == Attribute.PersistentAttributeType.ONE_TO_MANY) {
+                if (attribute.isCollection()) {
+                    if (attribute.getCollectionType() == PluralAttribute.CollectionType.LIST) {
+
+
+                    } else if (attribute.getCollectionType() == PluralAttribute.CollectionType.SET) {
+
+                    }
 
                     System.out.println("attrs: " + attribute);
                 }
