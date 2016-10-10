@@ -10,16 +10,12 @@ public class RelationTable {
     private final String tableNameAlias;
     private final String leftColumn;
     private final String rightColumn;
-    private final JavaType leftColumnType;
-    private final JavaType rightColumnType;
 
-    public RelationTable(String tableName, String tableNameAlias, String leftColumn, String rightColumn, JavaType leftColumnType, JavaType rightColumnType) {
+    public RelationTable(String tableName, String tableNameAlias, String leftColumn, String rightColumn) {
         this.tableName = tableName;
         this.tableNameAlias = tableNameAlias;
         this.leftColumn = leftColumn;
         this.rightColumn = rightColumn;
-        this.leftColumnType = leftColumnType;
-        this.rightColumnType = rightColumnType;
     }
 
     public String getTableName() {
@@ -34,11 +30,4 @@ public class RelationTable {
         return rightColumn;
     }
 
-    public JavaType getLeftColumnType() {
-        return leftColumnType;
-    }
-
-    public JavaType getRightColumnType() {
-        return rightColumnType;
-    }
 }

@@ -7,8 +7,6 @@ public class RelationTableBuilder {
     private String tableNameAlias;
     private String leftColumn;
     private String rightColumn;
-    private JavaType leftColumnType;
-    private JavaType rightColumnType;
 
     public RelationTableBuilder setTableName(String tableName) {
         this.tableName = tableName;
@@ -30,17 +28,7 @@ public class RelationTableBuilder {
         return this;
     }
 
-    public RelationTableBuilder setLeftColumnType(JavaType leftColumnType) {
-        this.leftColumnType = leftColumnType;
-        return this;
-    }
-
-    public RelationTableBuilder setRightColumnType(JavaType rightColumnType) {
-        this.rightColumnType = rightColumnType;
-        return this;
-    }
-
     public RelationTable createRelationTable() {
-        return new RelationTable(tableName, tableNameAlias, leftColumn, rightColumn, leftColumnType, rightColumnType);
+        return new RelationTable(tableName, tableNameAlias, leftColumn, rightColumn);
     }
 }
